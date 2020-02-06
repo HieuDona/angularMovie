@@ -1,6 +1,13 @@
-<h1>
-  Welcome to {{ title }}!
-</h1>
 
-<router-outlet></router-outlet>
-<app-movies></app-movies>
+<div style="text-align: center;">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <nav>
+    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/movies">Movies</a>
+  </nav>
+  <router-outlet></router-outlet>
+  <!-- <app-movies></app-movies>
+  <app-messages></app-messages> -->
+</div>
