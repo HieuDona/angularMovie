@@ -10,18 +10,23 @@ import { MovieService } from './movie.service';
 import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './message.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MovieSearchComponent } from './movie-search/movie-search.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     MoviesComponent,
     MovieDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    MovieSearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     MovieService,

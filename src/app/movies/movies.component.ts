@@ -42,4 +42,25 @@ export class MoviesComponent implements OnInit {
   //   console.log(`selectedMovie = ${JSON.stringify(this.selectedMovie)}`);//stringfy: object => string
   // }
 
+
+  add(name: string, releaseYear: string): void{
+    name = name.trim();//bỏ space đầu và cuối
+    if(Number.isNaN(Number(releaseYear))||!name||Number(releaseYear)===0){
+      alert('Name must not be blank, releasse year must be a number');
+      return;
+    }
+    const newMovie: Movie = new Movie();
+    newMovie.name = name;
+    newMovie.releaseYear = Number(releaseYear);
+    this.movieService.addMovie(newMovie)
+      .subscribe(insertedMovie =>{
+        this.movies.push(insertedMovie);
+      });
+  }
+
+  delete(movieId: number): void{
+    this.movieService.deleteMovie(movieId).subscribe(_=>{
+      this.movies = this.movies.filter(eachMovie => eachMovie.id != movieId);
+    });
+  }
 }
